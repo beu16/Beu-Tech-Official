@@ -1,0 +1,276 @@
+import { useEffect, useState, useRef } from "react";
+import { useApp } from "./AppContext";
+import { Zap, ArrowDown } from "lucide-react";
+import { motion, AnimatePresence } from "motion/react";
+
+export default function Hero() {
+  const { t, navigateTo } = useApp();
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  // Mouse move tracking for glow effect
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      if (!containerRef.current) return;
+      const rect = containerRef.current.getBoundingClientRect();
+      setMousePosition({
+        x: e.clientX - rect.left,
+        y: e.clientY - rect.top,
+      });
+    };
+
+    window.addEventListener("mousemove", handleMouseMove);
+    return () => window.removeEventListener("mousemove", handleMouseMove);
+  }, []);
+
+
+
+  return (
+    <section
+      ref={containerRef}
+      className="relative flex min-h-[90vh] md:min-h-[95vh] w-full flex-col items-center justify-center overflow-hidden bg-[#0A0A0A] py-16 px-4 md:px-8 text-center"
+      id="hero-section"
+    >
+      {/* Interactive Mouse-Follow Spotlight Glow */}
+      <div
+        className="absolute inset-0 pointer-events-none transition-opacity duration-300 opacity-40 md:opacity-50"
+        style={{
+          background: `radial-gradient(600px circle at ${mousePosition.x}px ${mousePosition.y}px, rgba(255, 215, 0, 0.08), transparent 70%)`,
+        }}
+        id="hero-mouse-spotlight"
+      />
+
+      {/* Dynamic Animated Background Elements (Orbs & Nebulas) */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
+        {/* Orb 1: Dynamic Golden Nebula */}
+        <motion.div
+          animate={{
+            x: [-80, 80, -80],
+            y: [-40, 40, -40],
+            scale: [1, 1.25, 1],
+          }}
+          transition={{
+            duration: 22,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+          className="absolute -top-32 -left-32 w-96 h-96 rounded-full bg-gradient-to-br from-[#FFD700]/12 via-[#FFD700]/4 to-transparent blur-3xl opacity-80"
+        />
+
+        {/* Orb 2: Secondary Amber Glow */}
+        <motion.div
+          animate={{
+            x: [80, -80, 80],
+            y: [40, -40, 40],
+            scale: [1.15, 0.9, 1.15],
+          }}
+          transition={{
+            duration: 18,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 3,
+          }}
+          className="absolute bottom-16 right-16 w-[450px] h-[450px] rounded-full bg-gradient-to-tr from-[#FFD700]/6 via-amber-500/3 to-transparent blur-3xl opacity-60"
+        />
+
+        {/* Orb 3: Central Deep Pulse */}
+        <motion.div
+          animate={{
+            scale: [0.95, 1.1, 0.95],
+            opacity: [0.25, 0.5, 0.25],
+          }}
+          transition={{
+            duration: 12,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-[radial-gradient(rgba(255,215,0,0.04)_0%,transparent_70%)] blur-2xl"
+        />
+      </div>
+
+      {/* Background Grid Accent */}
+      <div className="absolute inset-0 bg-[radial-gradient(rgba(255,255,255,0.015)_1px,transparent_1px)] [background-size:32px_32px] pointer-events-none" />
+
+      {/* Continuing Digital Heartbeat Pulse Line */}
+      <div className="absolute inset-x-0 top-[45%] h-40 w-full pointer-events-none overflow-hidden select-none z-10 opacity-30">
+        <svg className="w-full h-full text-transparent" viewBox="0 0 1200 100" preserveAspectRatio="none">
+          <defs>
+            <linearGradient id="heartbeat-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stopColor="#FFD700" stopOpacity="0.02" />
+              <stop offset="15%" stopColor="#FFD700" stopOpacity="0.10" />
+              <stop offset="50%" stopColor="#FFD700" stopOpacity="0.75" />
+              <stop offset="85%" stopColor="#FFD700" stopOpacity="0.10" />
+              <stop offset="100%" stopColor="#FFD700" stopOpacity="0.02" />
+            </linearGradient>
+            <filter id="heartbeat-glow">
+              <feGaussianBlur stdDeviation="2.5" result="coloredBlur"/>
+              <feMerge>
+                <feMergeNode in="coloredBlur"/>
+                <feMergeNode in="SourceGraphic"/>
+              </feMerge>
+            </filter>
+          </defs>
+
+          {/* Dim constant background reference line */}
+          <path
+            d="M 0,50 L 150,50 L 160,40 L 170,50 L 180,50 L 190,15 L 200,90 L 210,45 L 220,55 L 230,50 L 450,50 L 460,40 L 470,50 L 480,50 L 490,15 L 500,90 L 510,45 L 520,55 L 530,50 L 750,50 L 760,40 L 770,50 L 780,50 L 790,15 L 800,90 L 810,45 L 820,55 L 830,50 L 1050,50 L 1060,40 L 1070,50 L 1080,50 L 1090,15 L 1100,90 L 1110,45 L 1120,55 L 1130,50 L 1200,50"
+            fill="none"
+            stroke="rgba(255, 215, 0, 0.04)"
+            strokeWidth="1.5"
+          />
+
+          {/* Beautiful glowing animated flowing pulse path */}
+          <motion.path
+            d="M 0,50 L 150,50 L 160,40 L 170,50 L 180,50 L 190,15 L 200,90 L 210,45 L 220,55 L 230,50 L 450,50 L 460,40 L 470,50 L 480,50 L 490,15 L 500,90 L 510,45 L 520,55 L 530,50 L 750,50 L 760,40 L 770,50 L 780,50 L 790,15 L 800,90 L 810,45 L 820,55 L 830,50 L 1050,50 L 1060,40 L 1070,50 L 1080,50 L 1090,15 L 1100,90 L 1110,45 L 1120,55 L 1130,50 L 1200,50"
+            fill="none"
+            stroke="url(#heartbeat-gradient)"
+            strokeWidth="2"
+            filter="url(#heartbeat-glow)"
+            initial={{ strokeDasharray: "200 1000", strokeDashoffset: 1200 }}
+            animate={{ strokeDashoffset: -1200 }}
+            transition={{
+              repeat: Infinity,
+              duration: 4.5,
+              ease: "linear"
+            }}
+          />
+        </svg>
+      </div>
+
+      {/* Core Hero Content */}
+      <div className="relative z-20 flex max-w-4xl flex-col items-center justify-center">
+        {/* Government Partnership Notice Badge */}
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.1 }}
+          className="mb-8 inline-flex items-center space-x-3 rounded-full bg-emerald-500/[0.04] border border-emerald-500/25 px-5 py-2 hover:bg-emerald-500/[0.08] hover:border-emerald-500/40 transition-all cursor-pointer shadow-[0_0_20px_rgba(16,185,129,0.02)] group"
+          onClick={() => navigateTo("/contact")}
+          id="government-2030-notice-badge"
+        >
+          {/* Subtle green pulse to signify active state */}
+          <span className="relative flex h-2 w-2">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+            <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+          </span>
+          <span className="font-sans text-[11px] md:text-xs font-black tracking-wider text-emerald-400 uppercase">
+            WORKING TOWARD ETHIOPIAN 2030 DIGITAL TRANSFORMATION
+          </span>
+        </motion.div>
+
+        {/* Futuristic Glowing Headline */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 1.2, ease: "easeOut" }}
+          className="relative mb-6 flex flex-col items-center justify-center select-none"
+          id="glowing-new-age-container"
+        >
+          {/* Enhanced Ambient Glow Background Layer */}
+          <motion.div 
+            animate={{
+              scale: [1, 1.15, 1],
+              opacity: [0.7, 0.95, 0.7],
+            }}
+            transition={{
+              duration: 4,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+            className="absolute -inset-14 -z-10 rounded-full bg-gradient-to-r from-[#FFD700]/15 via-[#FFD700]/30 to-[#FFD700]/10 opacity-85 blur-3xl" 
+          />
+          
+          <h1 
+            className="font-sans text-5xl sm:text-7xl md:text-8xl font-black tracking-tight text-white leading-none relative filter drop-shadow-[0_0_35px_rgba(255,215,0,0.55)] drop-shadow-[0_0_65px_rgba(255,215,0,0.35)]"
+            id="glowing-new-age-text"
+          >
+            <span className="bg-gradient-to-b from-white via-[#FFFEEF] to-[#FFD700] bg-clip-text text-transparent">
+              Welcome To The New Age
+            </span>
+          </h1>
+
+          {/* Elegant subline underline glow effect */}
+          <motion.div 
+            animate={{
+              width: ["12rem", "18rem", "12rem"],
+              opacity: [0.5, 0.9, 0.5]
+            }}
+            transition={{
+              duration: 5,
+              repeat: Infinity,
+              ease: "easeInOut"
+            }}
+            className="mt-6 h-[2.5px] bg-gradient-to-r from-transparent via-[#FFD700] to-transparent shadow-[0_0_15px_#FFD700,0_0_30px_#FFD700]" 
+          />
+        </motion.div>
+
+        {/* Hero Subtext & Company Uplift Slogan */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.3 }}
+          className="mt-6 max-w-2xl"
+          id="hero-subtext-container"
+        >
+          <p className="font-sans text-base leading-relaxed text-gray-400 sm:text-lg md:text-xl" id="hero-subtext">
+            {t("heroSubtitle")}
+          </p>
+        </motion.div>
+
+        {/* Action Buttons */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.5 }}
+          className="mt-10 flex flex-col sm:flex-row gap-4 items-center justify-center w-full sm:w-auto"
+          id="hero-actions"
+        >
+          {/* Main Solid CTA */}
+          <button
+            onClick={() => navigateTo("/subsidiaries")}
+            className="w-full sm:w-auto flex items-center justify-center space-x-2 rounded-lg bg-[#FFD700] px-8 py-3.5 text-base font-bold text-black shadow-[0_0_20px_rgba(255,215,0,0.3)] transition-all duration-300 hover:scale-[1.03] hover:shadow-[0_0_30px_rgba(255,215,0,0.5)] active:scale-[0.98]"
+            id="hero-cta-explore"
+          >
+            <span>{t("exploreCompanies")}</span>
+            <Zap className="h-4 w-4 fill-current text-black" />
+          </button>
+
+          {/* Outlined Secondary CTA */}
+          <button
+            onClick={() => navigateTo("/contact")}
+            className="w-full sm:w-auto flex items-center justify-center rounded-lg border border-white/20 bg-white/5 hover:bg-white/10 px-8 py-3.5 text-base font-bold text-white transition-all duration-300 hover:scale-[1.03] hover:border-white/40 active:scale-[0.98]"
+            id="hero-cta-contact"
+          >
+            <span>{t("startProject")}</span>
+          </button>
+        </motion.div>
+      </div>
+
+      {/* Scroll Indicator */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.2, duration: 1 }}
+        className="absolute bottom-6 flex flex-col items-center space-y-1 cursor-pointer pointer-events-auto"
+        onClick={() => {
+          const nextSection = document.getElementById("subsidiaries-showcase");
+          if (nextSection) {
+            nextSection.scrollIntoView({ behavior: "smooth" });
+          }
+        }}
+        id="scroll-indicator"
+      >
+        <span className="font-sans text-xs font-medium tracking-widest text-gray-500 uppercase">
+          {t("scrollIndicator")}
+        </span>
+        <motion.div
+          animate={{ y: [0, 8, 0] }}
+          transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+          className="text-[#FFD700]"
+        >
+          <ArrowDown className="h-4 w-4" />
+        </motion.div>
+      </motion.div>
+    </section>
+  );
+}
