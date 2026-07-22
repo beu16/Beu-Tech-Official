@@ -54,7 +54,7 @@ export default function AboutPage() {
           >
             <Users className="h-3.5 w-3.5 text-[#FFD700]" />
             <span className="text-xs font-semibold tracking-wider text-[#FFD700] uppercase">
-              {language === "en" ? "Holding Company" : "ይዞታ ኩባንያ"}
+              {language === "en" ? "Beu Tech" : "ቤዩ ቴክ"}
             </span>
           </motion.div>
           <motion.h1

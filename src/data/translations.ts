@@ -190,7 +190,7 @@ export const translations: Record<"en" | "am", Translation> = {
 
     verifyTitle: "Beu Verify",
     verifyTagline: "Stop Fake Payments. Start Verifying.",
-    verifyDesc: "Beu Verify is Ethiopia's leading transaction verification platform. We help businesses instantly verify Telebirr payments, detect fake screenshots, and eliminate duplicate transactions. From small bakeries to large wholesalers, protect your revenue with real-time verification.",
+    verifyDesc: "Beu Verify is Ethiopia's leading multi-bank and digital wallet transaction verification platform. We help businesses instantly verify Telebirr, CBE Birr, Bank of Abyssinia, Awash, Dashen, M-PESA, and major local bank receipts, detect fake screenshots, and eliminate duplicate transactions. Protect your revenue with real-time verification.",
     verifyFeature1Title: "Instant Verification",
     verifyFeature1Desc: "Verify any payment screenshot or reference in under 2 seconds.",
     verifyFeature2Title: "Fraud Detection",
@@ -271,7 +271,7 @@ export const translations: Record<"en" | "am", Translation> = {
     stat4Label: "Support Availability",
 
     testimonialsTitle: "What Our Clients Say",
-    test1Text: "\"Beu Verify saved my supermarket from fake Telebirr payments. I've caught 12 fake transactions this month alone!\"",
+    test1Text: "\"Beu Verify saved my supermarket from fake Telebirr, CBE Birr, and bank payment receipts. I've caught 12 fake transactions this month alone!\"",
     test1Author: "— Abebe K., Supermarket Owner, Addis Ababa",
     test2Text: "\"The QR menu system from Beu Digital transformed our restaurant. Customers love it, and orders are faster.\"",
     test2Author: "— Sara M., Restaurant Manager, Bole",
@@ -296,7 +296,7 @@ export const translations: Record<"en" | "am", Translation> = {
     contactLocation: "Location: Addis Ababa, Ethiopia",
 
     aboutStoryTitle: "Our Story",
-    aboutStoryText1: "Beu Tech was founded with a singular, clear mission: to accelerate Ethiopia's digital transformation. As a progressive technology holding company, we identify critical infrastructural and commercial challenges within the local economy and build specialized, focused subsidiaries to solve them.",
+    aboutStoryText1: "Beu Tech was founded with a singular, clear mission: to accelerate Ethiopia's digital transformation. As a progressive technology group, we identify critical infrastructural and commercial challenges within the local economy and build specialized, focused subsidiaries to solve them.",
     aboutStoryText2: "By bringing together top-tier local talent, modern software engineering methodologies, and deep local market understanding, we create technology that empowers businesses, protects revenues, and bridges the digital gap. From micro-merchants in Merkato to large-scale hotel chains in Addis Ababa, our systems are built to be robust, secure, and incredibly fast.",
     aboutMissionTitle: "Our Mission",
     aboutMissionText: "To build reliable, scalable, and beautifully designed digital infrastructure that accelerates growth for businesses across East Africa.",
@@ -346,7 +346,7 @@ export const translations: Record<"en" | "am", Translation> = {
 
     verifyTitle: "ቤዩ ቬሪፋይ (Beu Verify)",
     verifyTagline: "የሀሰት ክፍያዎችን ያስቁሙ። ማረጋገጥ ይጀምሩ።",
-    verifyDesc: "ቤዩ ቬሪፋይ የኢትዮጵያ ቀዳሚ የክፍያ ማረጋገጫ መድረክ ነው። ንግዶች የቴሌብር ክፍያዎችን ወዲያውኑ እንዲያረጋግጡ፣ የሀሰት ስክሪንሾቶችን እንዲለዩ እና የተደገሙ ግብይቶችን እንዲያስወግዱ እንረዳለን። ከትንንሽ ዳቦ ቤቶች እስከ ትላልቅ ጅምላ አከፋፋዮች፣ ገቢዎን በቅጽበት ማረጋገጫ ይጠብቁ።",
+    verifyDesc: "ቤዩ ቬሪፋይ የኢትዮጵያ ቀዳሚ የባንኮች እና የዲጂታል ዋሌቶች የክፍያ ማረጋገጫ መድረክ ነው። ንግዶች የቴሌብር፣ የሲቢኢ ብር (CBE Birr)፣ የአቢሲንያ፣ የአዋሽ፣ የዳሸን እና የባንክ ክፍያዎችን ወዲያውኑ እንዲያረጋግጡ፣ የሀሰት ስክሪንሾቶችን እንዲለዩ እና የተደገሙ ግብይቶችን እንዲያስወግዱ እንረዳለን።",
     verifyFeature1Title: "ፈጣን ማረጋገጫ",
     verifyFeature1Desc: "ማንኛውንም የክፍያ ስክሪንሾት ወይም ማጣቀሻ ከ 2 ሰከንድ ባነሰ ጊዜ ውስጥ ያረጋግጡ።",
     verifyFeature2Title: "የማጭበርበር መከላከል",
@@ -427,7 +427,7 @@ export const translations: Record<"en" | "am", Translation> = {
     stat4Label: "የቴክኒክ ድጋፍ ዝግጁነት",
 
     testimonialsTitle: "የደንበኞቻችን ምስክርነት",
-    test1Text: "\"ቤዩ ቬሪፋይ ሱፐርማርኬቴን ከሀሰተኛ የቴሌብር ክፍያዎች አድኖታል። በዚህ ወር ብቻ 12 የሀሰት ክፍያዎችን ይዣለሁ!\"",
+    test1Text: "\"ቤዩ ቬሪፋይ ሱፐርማርኬቴን ከሀሰተኛ የቴሌብር እና የባንክ ክፍያ ደረሰኞች አድኖታል። በዚህ ወር ብቻ 12 የሀሰት ክፍያዎችን ይዣለሁ!\"",
     test1Author: "— አበበ ከ.፣ የሱፐርማርኬት ባለቤት፣ አዲስ አበባ",
     test2Text: "\"ከቤዩ ዲጂታል ያገኘነው የQR ሜኑ ስርዓት ሬስቶራንታችንን ቀይሮታል። ደንበኞች ይወዱታል፣ ማዘዝም በጣም ፈጣን ሆኗል።\"",
     test2Author: "— ሳራ መ.፣ የሬስቶራንት ስራ አስኪያጅ፣ ቦሌ",
@@ -452,7 +452,7 @@ export const translations: Record<"en" | "am", Translation> = {
     contactLocation: "አድራሻ: አዲስ አበባ, ኢትዮጵያ",
 
     aboutStoryTitle: "የእኛ ታሪክ",
-    aboutStoryText1: "ቤዩ ቴክ የተመሰረተው በአንድ ግልጽ ዓላማ ነው፡ የኢትዮጵያን ዲጂታል ሽግግር ማፋጠን። እንደ ተራማጅ የቴክኖሎጂ ኩባንያ፣ በአገር ውስጥ ኢኮኖሚ ውስጥ ያሉ ቁልፍ የመሰረተ-ልማት እና የንግድ ፈተናዎችን ለይተን በመመልከት፣ እነሱን ለመፍታት ልዩ ትኩረት የሚሰጡ ቅርንጫፍ ኩባንያዎችን እንገነባለን።",
+    aboutStoryText1: "ቤዩ ቴክ የተመሰረተው በአንድ ግልጽ ዓላማ ነው፡ የኢትዮጵያን ዲጂታል ሽግግር ማፋጠን። እንደ ተራማጅ የቴክኖሎጂ ተቋም፣ በአገር ውስጥ ኢኮኖሚ ውስጥ ያሉ ቁልፍ የመሰረተ-ልማት እና የንግድ ፈተናዎችን ለይተን በመመልከት፣ እነሱን ለመፍታት ልዩ ትኩረት የሚሰጡ ቅርንጫፍ ኩባንያዎችን እንገነባለን።",
     aboutStoryText2: "ከፍተኛ የአገር ውስጥ ባለሙያዎችን፣ ዘመናዊ የሶፍትዌር ምህንድስና ዘዴዎችን እና ጥልቅ የአገር ውስጥ ገበያ ግንዛቤን በማጣመር ንግዶችን የሚያበረታታ፣ ገቢን የሚጠብቅ እና የዲጂታል ክፍተቱን የሚደፍን ቴክኖሎጂ እንፈጥራለን። ከመረካቶ ትናንሽ ነጋዴዎች ጀምሮ በአዲስ አበባ እስከሚገኙ ትላልቅ የሆቴል ሰንሰለቶች ድረስ ስርዓቶቻችን ጠንካራ፣ ደህንነታቸው የተጠበቀ እና እጅግ ፈጣን እንዲሆኑ ተደርገው የተገነቡ ናቸው።",
     aboutMissionTitle: "የእኛ ተልዕኮ",
     aboutMissionText: "በምስራቅ አፍሪካ ላሉ ንግዶች እድገትን የሚያፋጥኑ አስተማማኝ፣ ሊለኩ የሚችሉ እና በጥንቃቄ የተነደፉ ዲጂታል መሰረተ-ልማቶችን መገንባት።",

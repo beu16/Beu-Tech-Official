@@ -64,7 +64,7 @@ export default function SubsidiariesPage() {
             className="font-sans text-4xl font-extrabold sm:text-5xl tracking-tight bg-gradient-to-r from-white via-gray-100 to-gray-400 bg-clip-text text-transparent"
             id="subs-page-title"
           >
-            {language === "en" ? "Our Holdings & Companies" : "የእኛ ድርጅቶች እና ቅርንጫፎች"}
+            {language === "en" ? "Beu Tech Ecosystem" : "የቤዩ ቴክ ኩባንያዎች ሥርዓተ-ምህዳር"}
           </motion.h1>
           <p className="mt-4 font-sans text-sm md:text-base text-gray-400 leading-relaxed">
             {language === "en"
@@ -93,12 +93,16 @@ export default function SubsidiariesPage() {
             >
               {/* Pulse ring */}
               <div className="absolute -inset-1 rounded-2xl bg-[#FFD700]/10 animate-ping opacity-60 pointer-events-none" />
-              <Zap className="h-8 w-8 text-[#FFD700] fill-current mb-2 animate-bounce" />
+              <svg className="h-8 w-8 text-[#FFD700] mb-2 animate-bounce" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <polygon points="50,15 80,32 80,68 50,85 20,68 20,32" stroke="currentColor" strokeWidth="8" strokeLinejoin="round"/>
+                <polygon points="50,27 70,38 70,62 50,73 30,62 30,38" stroke="currentColor" strokeWidth="4" strokeLinejoin="round" opacity="0.6"/>
+                <circle cx="50" cy="50" r="10" fill="currentColor"/>
+              </svg>
               <h4 className="font-sans text-lg font-black text-white tracking-widest uppercase">
                 BEU TECH
               </h4>
               <p className="font-mono text-[9px] text-[#FFD700] uppercase tracking-widest mt-1">
-                {language === "en" ? "Parent Holding & Core Engine" : "ዋናው መሪ እና አቅራቢ ኩባንያ"}
+                {language === "en" ? "Beu Tech Core Engine" : "ቤዩ ቴክ ዋና ማዕከል"}
               </p>
             </motion.div>
 

@@ -46,8 +46,8 @@ export default function BeuVerifyPage() {
         
         <p className="mt-3 font-sans text-sm text-gray-500 leading-relaxed">
           {language === "en"
-            ? "Ethiopia's leading transaction verification platform is launching in a new tab."
-            : "የኢትዮጵያ ቀዳሚ የክፍያ ማረጋገጫ መድረክ በአዲስ ታብ ላይ በመከፈት ላይ ነው።"}
+            ? "Ethiopia's leading multi-bank & mobile wallet verification platform is launching in a new tab."
+            : "የኢትዮጵያ ቀዳሚ የባንኮች እና ዲጂታል ዋሌቶች የክፍያ ማረጋገጫ መድረክ በአዲስ ታብ ላይ በመከፈት ላይ ነው።"}
         </p>
 
         {/* Progress bar animation */}

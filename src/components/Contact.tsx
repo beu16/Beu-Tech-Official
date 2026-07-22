@@ -76,8 +76,8 @@ export default function Contact() {
               </h3>
               <p className="mt-4 font-sans text-sm leading-relaxed text-gray-400">
                 {language === "en"
-                  ? "Instantly verify Telebirr receipts and protect your business against transaction fraud. Free to get started."
-                  : "የቴሌብር ደረሰኞችን በቅጽበት ያረጋግጡ እና ንግድዎን ከክፍያ ማጭበርበር ይጠብቁ። በነጻ ይጀምሩ።"}
+                  ? "Instantly verify Telebirr, CBE Birr, and major bank receipts to protect your business against transaction fraud. Free to get started."
+                  : "የቴሌብር፣ የሲቢኢ ብር (CBE Birr) እና የባንክ ደረሰኞችን በቅጽበት ያረጋግጡ እና ንግድዎን ከክፍያ ማጭበርበር ይጠብቁ። በነጻ ይጀምሩ።"}
               </p>
             </div>
 

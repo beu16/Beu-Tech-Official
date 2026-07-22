@@ -92,18 +92,18 @@ export default function Hero() {
       <div className="absolute inset-0 bg-[radial-gradient(rgba(255,255,255,0.015)_1px,transparent_1px)] [background-size:32px_32px] pointer-events-none" />
 
       {/* Continuing Digital Heartbeat Pulse Line */}
-      <div className="absolute inset-x-0 top-[45%] h-40 w-full pointer-events-none overflow-hidden select-none z-10 opacity-30">
-        <svg className="w-full h-full text-transparent" viewBox="0 0 1200 100" preserveAspectRatio="none">
+      <div className="absolute inset-x-0 top-[28%] sm:top-[32%] md:top-[35%] h-32 sm:h-40 md:h-52 w-full pointer-events-none overflow-hidden select-none z-10 opacity-60 sm:opacity-75 md:opacity-85">
+        <svg className="w-full h-full text-transparent" viewBox="0 0 1200 120" preserveAspectRatio="none">
           <defs>
             <linearGradient id="heartbeat-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" stopColor="#FFD700" stopOpacity="0.02" />
-              <stop offset="15%" stopColor="#FFD700" stopOpacity="0.10" />
-              <stop offset="50%" stopColor="#FFD700" stopOpacity="0.75" />
-              <stop offset="85%" stopColor="#FFD700" stopOpacity="0.10" />
-              <stop offset="100%" stopColor="#FFD700" stopOpacity="0.02" />
+              <stop offset="0%" stopColor="#FFD700" stopOpacity="0.05" />
+              <stop offset="15%" stopColor="#FFD700" stopOpacity="0.25" />
+              <stop offset="50%" stopColor="#FFD700" stopOpacity="1" />
+              <stop offset="85%" stopColor="#FFD700" stopOpacity="0.25" />
+              <stop offset="100%" stopColor="#FFD700" stopOpacity="0.05" />
             </linearGradient>
             <filter id="heartbeat-glow">
-              <feGaussianBlur stdDeviation="2.5" result="coloredBlur"/>
+              <feGaussianBlur stdDeviation="3.5" result="coloredBlur"/>
               <feMerge>
                 <feMergeNode in="coloredBlur"/>
                 <feMergeNode in="SourceGraphic"/>
@@ -113,24 +113,24 @@ export default function Hero() {
 
           {/* Dim constant background reference line */}
           <path
-            d="M 0,50 L 150,50 L 160,40 L 170,50 L 180,50 L 190,15 L 200,90 L 210,45 L 220,55 L 230,50 L 450,50 L 460,40 L 470,50 L 480,50 L 490,15 L 500,90 L 510,45 L 520,55 L 530,50 L 750,50 L 760,40 L 770,50 L 780,50 L 790,15 L 800,90 L 810,45 L 820,55 L 830,50 L 1050,50 L 1060,40 L 1070,50 L 1080,50 L 1090,15 L 1100,90 L 1110,45 L 1120,55 L 1130,50 L 1200,50"
+            d="M 0,60 L 150,60 L 160,50 L 170,60 L 180,60 L 190,15 L 200,105 L 210,50 L 220,65 L 230,60 L 450,60 L 460,50 L 470,60 L 480,60 L 490,15 L 500,105 L 510,50 L 520,65 L 530,60 L 750,60 L 760,50 L 770,60 L 780,60 L 790,15 L 800,105 L 810,50 L 820,65 L 830,60 L 1050,60 L 1060,50 L 1070,60 L 1080,60 L 1090,15 L 1100,105 L 1110,50 L 1120,65 L 1130,60 L 1200,60"
             fill="none"
-            stroke="rgba(255, 215, 0, 0.04)"
+            stroke="rgba(255, 215, 0, 0.12)"
             strokeWidth="1.5"
           />
 
           {/* Beautiful glowing animated flowing pulse path */}
           <motion.path
-            d="M 0,50 L 150,50 L 160,40 L 170,50 L 180,50 L 190,15 L 200,90 L 210,45 L 220,55 L 230,50 L 450,50 L 460,40 L 470,50 L 480,50 L 490,15 L 500,90 L 510,45 L 520,55 L 530,50 L 750,50 L 760,40 L 770,50 L 780,50 L 790,15 L 800,90 L 810,45 L 820,55 L 830,50 L 1050,50 L 1060,40 L 1070,50 L 1080,50 L 1090,15 L 1100,90 L 1110,45 L 1120,55 L 1130,50 L 1200,50"
+            d="M 0,60 L 150,60 L 160,50 L 170,60 L 180,60 L 190,15 L 200,105 L 210,50 L 220,65 L 230,60 L 450,60 L 460,50 L 470,60 L 480,60 L 490,15 L 500,105 L 510,50 L 520,65 L 530,60 L 750,60 L 760,50 L 770,60 L 780,60 L 790,15 L 800,105 L 810,50 L 820,65 L 830,60 L 1050,60 L 1060,50 L 1070,60 L 1080,60 L 1090,15 L 1100,105 L 1110,50 L 1120,65 L 1130,60 L 1200,60"
             fill="none"
             stroke="url(#heartbeat-gradient)"
-            strokeWidth="2"
+            strokeWidth="3"
             filter="url(#heartbeat-glow)"
-            initial={{ strokeDasharray: "200 1000", strokeDashoffset: 1200 }}
+            initial={{ strokeDasharray: "250 1000", strokeDashoffset: 1200 }}
             animate={{ strokeDashoffset: -1200 }}
             transition={{
               repeat: Infinity,
-              duration: 4.5,
+              duration: 4,
               ease: "linear"
             }}
           />
