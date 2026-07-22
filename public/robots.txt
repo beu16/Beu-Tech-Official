@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://beutech.et/sitemap.xml
+Sitemap: https://beutech.com.et/sitemap.xml
