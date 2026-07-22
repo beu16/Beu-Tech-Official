@@ -1,11 +1,12 @@
 import { useEffect, useState, useRef } from "react";
 import { useApp } from "./AppContext";
-import { Zap, ArrowDown } from "lucide-react";
+import { Zap, ArrowDown, Globe, ShieldCheck, Cpu, ArrowRight, X, Sparkles, CheckCircle2, Activity, Layers, Landmark } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 
 export default function Hero() {
-  const { t, navigateTo } = useApp();
+  const { t, navigateTo, language } = useApp();
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [showRoadmapModal, setShowRoadmapModal] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
 
   // Mouse move tracking for glow effect
@@ -139,23 +140,44 @@ export default function Hero() {
 
       {/* Core Hero Content */}
       <div className="relative z-20 flex max-w-4xl flex-col items-center justify-center">
-        {/* Government Partnership Notice Badge */}
+        {/* Clean Floating Golden Moving Text Marquee (Ultra Clear, Smooth Right to Left) */}
         <motion.div
-          initial={{ opacity: 0, y: -20 }}
+          initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.1 }}
-          className="mb-8 inline-flex items-center space-x-3 rounded-full bg-emerald-500/[0.04] border border-emerald-500/25 px-5 py-2 hover:bg-emerald-500/[0.08] hover:border-emerald-500/40 transition-all cursor-pointer shadow-[0_0_20px_rgba(16,185,129,0.02)] group"
-          onClick={() => navigateTo("/contact")}
-          id="government-2030-notice-badge"
+          transition={{ duration: 0.8 }}
+          onClick={() => setShowRoadmapModal(true)}
+          className="mb-8 w-full max-w-2xl mx-auto overflow-hidden select-none cursor-pointer group py-2"
+          id="ethiopia-2030-marquee-text"
         >
-          {/* Subtle green pulse to signify active state */}
-          <span className="relative flex h-2 w-2">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-            <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
-          </span>
-          <span className="font-sans text-[11px] md:text-xs font-black tracking-wider text-emerald-400 uppercase">
-            WORKING TOWARD ETHIOPIAN 2030 DIGITAL TRANSFORMATION
-          </span>
+          {/* Smooth GPU-Accelerated Marquee Track */}
+          <div className="relative w-full overflow-hidden whitespace-nowrap">
+            <motion.div
+              animate={{ x: ["0%", "-50%"] }}
+              transition={{ repeat: Infinity, duration: 22, ease: "linear" }}
+              className="inline-flex space-x-12 font-sans text-xs sm:text-sm font-black tracking-widest text-[#FFD700] uppercase transform-gpu will-change-transform antialiased group-hover:text-amber-300 transition-colors"
+            >
+              <div className="inline-flex items-center space-x-12 shrink-0">
+                <span className="flex items-center space-x-3">
+                  <span className="text-emerald-400 text-base">✦</span>
+                  <span className="font-sans font-black tracking-widest">WORKING TOWARD ETHIOPIAN 2030 DIGITAL TRANSFORMATION</span>
+                </span>
+                <span className="flex items-center space-x-3">
+                  <span className="text-emerald-400 text-base">✦</span>
+                  <span className="font-sans font-black tracking-widest">WORKING TOWARD ETHIOPIAN 2030 DIGITAL TRANSFORMATION</span>
+                </span>
+              </div>
+              <div className="inline-flex items-center space-x-12 shrink-0">
+                <span className="flex items-center space-x-3">
+                  <span className="text-emerald-400 text-base">✦</span>
+                  <span className="font-sans font-black tracking-widest">WORKING TOWARD ETHIOPIAN 2030 DIGITAL TRANSFORMATION</span>
+                </span>
+                <span className="flex items-center space-x-3">
+                  <span className="text-emerald-400 text-base">✦</span>
+                  <span className="font-sans font-black tracking-widest">WORKING TOWARD ETHIOPIAN 2030 DIGITAL TRANSFORMATION</span>
+                </span>
+              </div>
+            </motion.div>
+          </div>
         </motion.div>
 
         {/* Futuristic Glowing Headline */}
@@ -271,6 +293,128 @@ export default function Hero() {
           <ArrowDown className="h-4 w-4" />
         </motion.div>
       </motion.div>
+
+      {/* Interactive Ethiopia Digital Strategy 2030 Modal */}
+      <AnimatePresence>
+        {showRoadmapModal && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.9, y: 20 }}
+              className="relative w-full max-w-3xl rounded-3xl border border-emerald-500/40 bg-[#0E0E0E] p-6 sm:p-8 text-left shadow-[0_0_80px_rgba(16,185,129,0.25)] overflow-hidden"
+            >
+              {/* Background ambient glow */}
+              <div className="absolute top-0 right-0 w-80 h-80 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none" />
+              <div className="absolute bottom-0 left-0 w-80 h-80 bg-[#FFD700]/10 rounded-full blur-3xl pointer-events-none" />
+
+              {/* Close Button */}
+              <button
+                onClick={() => setShowRoadmapModal(false)}
+                className="absolute top-5 right-5 p-2 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 text-gray-400 hover:text-white transition-colors"
+              >
+                <X className="h-5 w-5" />
+              </button>
+
+              {/* Modal Header */}
+              <div className="flex items-center space-x-3 mb-6">
+                <div className="p-3 rounded-2xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-400">
+                  <Landmark className="h-6 w-6" />
+                </div>
+                <div>
+                  <div className="flex items-center space-x-2">
+                    <span className="font-mono text-[10px] font-bold text-emerald-400 uppercase tracking-widest">
+                      ETHIOPIA DIGITAL STRATEGY 2030
+                    </span>
+                    <span className="px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 font-mono text-[9px] font-bold">
+                      GOVERNMENT ALIGNED
+                    </span>
+                  </div>
+                  <h3 className="font-sans text-xl sm:text-2xl font-black text-white mt-1">
+                    Powering Ethiopia's 2030 Digital Economy
+                  </h3>
+                </div>
+              </div>
+
+              {/* Modal Content / Pillars Grid */}
+              <p className="text-xs sm:text-sm text-gray-300 leading-relaxed mb-6">
+                Beu Tech actively advances Ethiopia's National Digital Transformation Strategy 2030 through specialized infrastructure across fraud prevention, merchant digitalization, fintech unification, and high-load software engineering.
+              </p>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
+                {/* Pillar 1 */}
+                <div className="p-4 rounded-2xl bg-white/[0.02] border border-white/10 hover:border-emerald-500/40 transition-colors">
+                  <div className="flex items-center space-x-2.5 mb-2 text-[#FFD700]">
+                    <ShieldCheck className="h-5 w-5" />
+                    <span className="font-sans text-sm font-bold text-white">01. Multi-Bank Verification</span>
+                  </div>
+                  <p className="text-xs text-gray-400 leading-normal">
+                    Protecting national commerce with instant cross-verification across Telebirr, CBE Birr, Abyssinia, Awash, Dashen, and M-PESA.
+                  </p>
+                </div>
+
+                {/* Pillar 2 */}
+                <div className="p-4 rounded-2xl bg-white/[0.02] border border-white/10 hover:border-emerald-500/40 transition-colors">
+                  <div className="flex items-center space-x-2.5 mb-2 text-[#FFD700]">
+                    <Activity className="h-5 w-5" />
+                    <span className="font-sans text-sm font-bold text-white">02. Merchant Digitalization</span>
+                  </div>
+                  <p className="text-xs text-gray-400 leading-normal">
+                    Replacing paper registers with contactless QR ordering, smart POS systems, and real-time merchant inventory analytics.
+                  </p>
+                </div>
+
+                {/* Pillar 3 */}
+                <div className="p-4 rounded-2xl bg-white/[0.02] border border-white/10 hover:border-emerald-500/40 transition-colors">
+                  <div className="flex items-center space-x-2.5 mb-2 text-[#FFD700]">
+                    <Cpu className="h-5 w-5" />
+                    <span className="font-sans text-sm font-bold text-white">03. Unified Payment Gateway</span>
+                  </div>
+                  <p className="text-xs text-gray-400 leading-normal">
+                    Providing Ethiopian developers with secure 256-bit APIs for automated reconciliation and ledger synchronization.
+                  </p>
+                </div>
+
+                {/* Pillar 4 */}
+                <div className="p-4 rounded-2xl bg-white/[0.02] border border-white/10 hover:border-emerald-500/40 transition-colors">
+                  <div className="flex items-center space-x-2.5 mb-2 text-[#FFD700]">
+                    <Layers className="h-5 w-5" />
+                    <span className="font-sans text-sm font-bold text-white">04. Campus Cashless Systems</span>
+                  </div>
+                  <p className="text-xs text-gray-400 leading-normal">
+                    Modernizing academic institutions with digital student portals, parent SMS alerts, and cashless tuition settlement.
+                  </p>
+                </div>
+              </div>
+
+              {/* Progress Bar & Footer Action */}
+              <div className="p-4 rounded-2xl bg-emerald-950/30 border border-emerald-500/30 flex flex-col sm:flex-row items-center justify-between gap-4">
+                <div className="w-full sm:w-auto flex-1">
+                  <div className="flex justify-between text-xs font-mono text-emerald-400 mb-1.5">
+                    <span>NATIONAL ROADMAP ALIGNMENT</span>
+                    <span className="font-bold">78% COMPLETED</span>
+                  </div>
+                  <div className="w-full h-2 rounded-full bg-white/10 overflow-hidden">
+                    <div className="h-full bg-gradient-to-r from-emerald-500 via-[#FFD700] to-amber-500 w-[78%]" />
+                  </div>
+                </div>
+
+                <button
+                  onClick={() => {
+                    setShowRoadmapModal(false);
+                    navigateTo("/subsidiaries");
+                  }}
+                  className="w-full sm:w-auto px-5 py-2.5 rounded-xl bg-[#FFD700] hover:bg-amber-400 text-black font-extrabold text-xs flex items-center justify-center space-x-2 transition-all shadow-md shrink-0"
+                >
+                  <span>Explore All Divisions</span>
+                  <ArrowRight className="h-4 w-4" />
+                </button>
+              </div>
+
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
     </section>
   );
 }
