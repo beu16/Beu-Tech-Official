@@ -140,44 +140,18 @@ export default function Hero() {
 
       {/* Core Hero Content */}
       <div className="relative z-20 flex max-w-4xl flex-col items-center justify-center">
-        {/* Clean Floating Golden Moving Text Marquee (Ultra Clear, Smooth Right to Left) */}
+        {/* Clean Static Golden Text Header (No movement, no green icons) */}
         <motion.div
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           onClick={() => setShowRoadmapModal(true)}
-          className="mb-8 w-full max-w-2xl mx-auto overflow-hidden select-none cursor-pointer group py-2"
-          id="ethiopia-2030-marquee-text"
+          className="mb-8 cursor-pointer group select-none text-center px-4 py-2"
+          id="ethiopia-2030-static-text"
         >
-          {/* Smooth GPU-Accelerated Marquee Track */}
-          <div className="relative w-full overflow-hidden whitespace-nowrap">
-            <motion.div
-              animate={{ x: ["0%", "-50%"] }}
-              transition={{ repeat: Infinity, duration: 22, ease: "linear" }}
-              className="inline-flex space-x-12 font-sans text-xs sm:text-sm font-black tracking-widest text-[#FFD700] uppercase transform-gpu will-change-transform antialiased group-hover:text-amber-300 transition-colors"
-            >
-              <div className="inline-flex items-center space-x-12 shrink-0">
-                <span className="flex items-center space-x-3">
-                  <span className="text-emerald-400 text-base">✦</span>
-                  <span className="font-sans font-black tracking-widest">WORKING TOWARD ETHIOPIAN 2030 DIGITAL TRANSFORMATION</span>
-                </span>
-                <span className="flex items-center space-x-3">
-                  <span className="text-emerald-400 text-base">✦</span>
-                  <span className="font-sans font-black tracking-widest">WORKING TOWARD ETHIOPIAN 2030 DIGITAL TRANSFORMATION</span>
-                </span>
-              </div>
-              <div className="inline-flex items-center space-x-12 shrink-0">
-                <span className="flex items-center space-x-3">
-                  <span className="text-emerald-400 text-base">✦</span>
-                  <span className="font-sans font-black tracking-widest">WORKING TOWARD ETHIOPIAN 2030 DIGITAL TRANSFORMATION</span>
-                </span>
-                <span className="flex items-center space-x-3">
-                  <span className="text-emerald-400 text-base">✦</span>
-                  <span className="font-sans font-black tracking-widest">WORKING TOWARD ETHIOPIAN 2030 DIGITAL TRANSFORMATION</span>
-                </span>
-              </div>
-            </motion.div>
-          </div>
+          <span className="font-sans text-xs sm:text-sm md:text-base font-black tracking-widest text-[#FFD700] uppercase drop-shadow-[0_0_12px_rgba(255,215,0,0.4)] group-hover:text-amber-300 transition-colors">
+            WORKING TOWARD ETHIOPIAN 2030 DIGITAL TRANSFORMATION
+          </span>
         </motion.div>
 
         {/* Futuristic Glowing Headline */}
