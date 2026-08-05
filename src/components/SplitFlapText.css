@@ -1,0 +1,212 @@
+.split-flap-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 100%;
+  width: 100%;
+  overflow: hidden;
+  padding: 4px 0;
+}
+
+.split-flap-text {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--split-flap-gap, 5px);
+  color: var(--split-flap-text-color, #FFD700);
+  font-family: 'SFMono-Regular', 'Roboto Mono', 'Cascadia Code', 'Fira Code', Consolas, Monaco, monospace;
+  font-size: var(--split-flap-font-size, 16px);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: 0.03em;
+  white-space: pre;
+  user-select: none;
+  font-variant-numeric: tabular-nums;
+  flex-wrap: nowrap;
+}
+
+.split-flap-text__tile {
+  position: relative;
+  width: 0.82em;
+  height: 1.2em;
+  overflow: hidden;
+  border-radius: var(--split-flap-radius, 6px);
+  background:
+    radial-gradient(circle at 50% 0%, rgba(255, 215, 0, 0.12), transparent 60%),
+    linear-gradient(
+      180deg,
+      #141c2e 0%,
+      #090e18 100%
+    );
+  box-shadow:
+    0 0 0 1px rgba(255, 215, 0, 0.25),
+    0 2px 6px rgba(0, 0, 0, 0.6),
+    0 0 8px rgba(255, 215, 0, 0.1);
+  perspective: 520px;
+  transform-style: preserve-3d;
+  isolation: isolate;
+  flex-shrink: 0;
+}
+
+.split-flap-text__tile::before {
+  content: '';
+  position: absolute;
+  z-index: 8;
+  top: calc(50% - 0.5px);
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 215, 0, 0.4) 20%,
+    rgba(0, 0, 0, 0.8) 50%,
+    rgba(255, 215, 0, 0.4) 80%,
+    transparent
+  );
+  box-shadow:
+    0 -1px 0 rgba(255, 255, 255, 0.1),
+    0 1px 0 rgba(0, 0, 0, 0.7);
+  pointer-events: none;
+}
+
+.split-flap-text__tile::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 9;
+  border: 1px solid rgba(255, 215, 0, 0.15);
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+.split-flap-text__half,
+.split-flap-text__flap {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 50%;
+  overflow: hidden;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.08), transparent 40%),
+    #0d1424;
+  backface-visibility: hidden;
+}
+
+.split-flap-text__half--top,
+.split-flap-text__flap--front {
+  top: 0;
+}
+
+.split-flap-text__half--bottom,
+.split-flap-text__flap--back {
+  bottom: 0;
+}
+
+.split-flap-text__half--bottom,
+.split-flap-text__flap--back {
+  background:
+    linear-gradient(0deg, rgba(255, 255, 255, 0.04), transparent 40%),
+    #080c16;
+}
+
+.split-flap-text__char {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 200%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--split-flap-text-color, #FFD700);
+  font-weight: 800;
+  text-shadow:
+    0 0 6px rgba(255, 215, 0, 0.5),
+    0 1px 2px rgba(0, 0, 0, 0.9);
+}
+
+.split-flap-text__half--top .split-flap-text__char,
+.split-flap-text__flap--front .split-flap-text__char {
+  top: 0;
+}
+
+.split-flap-text__half--bottom .split-flap-text__char,
+.split-flap-text__flap--back .split-flap-text__char {
+  bottom: 0;
+}
+
+.split-flap-text__flap {
+  z-index: 6;
+  will-change: transform, filter;
+  transform-style: preserve-3d;
+}
+
+.split-flap-text__flap--front {
+  transform-origin: center bottom;
+  animation: split-flap-front var(--split-flap-flip-duration, 0.12s) cubic-bezier(0.23, 1, 0.32, 1) both;
+}
+
+.split-flap-text__flap--back {
+  transform-origin: center top;
+  transform: rotateX(90deg);
+  animation: split-flap-back var(--split-flap-flip-duration, 0.12s) cubic-bezier(0.23, 1, 0.32, 1) both;
+}
+
+@keyframes split-flap-front {
+  0% {
+    transform: rotateX(0deg);
+    filter: brightness(1.15);
+  }
+
+  100% {
+    transform: rotateX(-90deg);
+    filter: brightness(0.45);
+  }
+}
+
+@keyframes split-flap-back {
+  0%,
+  45% {
+    transform: rotateX(90deg);
+    filter: brightness(0.5);
+  }
+
+  100% {
+    transform: rotateX(0deg);
+    filter: brightness(1);
+  }
+}
+
+@media (max-width: 640px) {
+  .split-flap-text {
+    font-size: clamp(9px, 2.8vw, 13px) !important;
+    gap: 2.5px !important;
+    letter-spacing: 0.02em !important;
+  }
+  
+  .split-flap-text__tile {
+    width: 0.85em !important;
+    height: 1.25em !important;
+    border-radius: 4px !important;
+  }
+}
+
+@media (max-width: 440px) {
+  .split-flap-text {
+    font-size: clamp(8px, 2.75vw, 11px) !important;
+    gap: 1.5px !important;
+    letter-spacing: 0.01em !important;
+  }
+
+  .split-flap-text__tile {
+    width: 0.88em !important;
+    height: 1.28em !important;
+    border-radius: 3px !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .split-flap-text__flap {
+    animation: none !important;
+  }
+}
