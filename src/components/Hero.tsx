@@ -2,7 +2,6 @@ import { useEffect, useState, useRef } from "react";
 import { useApp } from "./AppContext";
 import { Zap, ArrowDown, Globe, ShieldCheck, Cpu, ArrowRight, X, Sparkles, CheckCircle2, Activity, Layers, Landmark } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
-import SplitFlapText from "./SplitFlapText";
 
 export default function Hero() {
   const { t, navigateTo, language } = useApp();
@@ -141,37 +140,18 @@ export default function Hero() {
 
       {/* Core Hero Content */}
       <div className="relative z-20 flex max-w-4xl flex-col items-center justify-center">
-        {/* SplitFlap Text Board Header (Optimized for Mobile & Desktop Readability) */}
+        {/* Clean Static Golden Text Header */}
         <motion.div
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           onClick={() => setShowRoadmapModal(true)}
-          className="mb-8 cursor-pointer group select-none flex justify-center items-center w-full max-w-3xl mx-auto px-2"
-          id="ethiopia-2030-split-flap"
+          className="mb-8 cursor-pointer group select-none text-center px-4 py-2"
+          id="ethiopia-2030-static-text"
         >
-          <div className="w-full flex justify-center items-center py-2.5 px-3 sm:px-6 rounded-xl bg-slate-950/90 border border-amber-500/30 shadow-[0_0_25px_rgba(255,215,0,0.15)] backdrop-blur-md group-hover:border-amber-400/60 transition-all duration-300">
-            <SplitFlapText
-              words={[
-                'ETHIOPIA 2030 DIGITAL VISION',
-                'BEU TECH DIGITAL & FINTECH',
-                'DIGITAL TRANSFORMATION 2030'
-              ]}
-              flipDuration={0.10}
-              stagger={0.03}
-              cycleDelay={3500}
-              charset="alphanumeric"
-              flipsPerChar={5}
-              tileColor="#0c1220"
-              textColor="#FFD700"
-              tileRadius={5}
-              gap={3}
-              fontSize={15}
-              loop
-              padTo={29}
-              className="drop-shadow-[0_0_12px_rgba(255,215,0,0.4)]"
-            />
-          </div>
+          <span className="font-sans text-xs sm:text-sm md:text-base font-black tracking-widest text-[#FFD700] uppercase drop-shadow-[0_0_12px_rgba(255,215,0,0.4)] group-hover:text-amber-300 transition-colors">
+            WORKING TOWARD ETHIOPIAN 2030 DIGITAL TRANSFORMATION
+          </span>
         </motion.div>
 
         {/* Futuristic Glowing Headline */}
