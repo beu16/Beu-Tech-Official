@@ -55,13 +55,6 @@ export default function AboutPage() {
       initial: "D"
     },
     {
-      name: "Biniyam H.",
-      role: language === "en" ? "Full-Stack Developer" : "ፉል-ስታክ ዴቨሎፐር",
-      tag: language === "en" ? "Product & Engineering" : "ሶፍትዌር እና ሲስተምስ",
-      skills: language === "en" ? ["React & TypeScript", "Cloud Architectures", "API Systems", "Performance UI"] : ["ሪአክት እና ታይፕስክሪፕት", "ክላውድ", "ኤፒአይ ሲስተምስ", "የተጠቃሚ በይነገጽ"],
-      initial: "B"
-    },
-    {
       name: "Dawit K.",
       role: language === "en" ? "Chief Technology Officer" : "ዋና የቴክኖሎጂ ኦፊሰር",
       tag: language === "en" ? "Tech & Infrastructure" : "ቴክኖሎጂ እና መሰረተ-ልማት",
@@ -231,8 +224,8 @@ export default function AboutPage() {
             <div className="mt-3 h-0.5 w-12 bg-[#FFD700] mx-auto rounded-full shadow-[0_0_10px_#FFD700]" />
           </div>
 
-          {/* 3 Executive Leaders Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto mb-16" id="about-team-grid">
+          {/* Executive Leaders Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-3xl mx-auto mb-16" id="about-team-grid">
             {team.map((member, idx) => (
               <motion.div
                 key={idx}
