@@ -1,4 +1,5 @@
 import { useApp } from "./AppContext";
+import TeamShowcase from "./TeamShowcase";
 import { 
   Target, 
   Users, 
@@ -16,7 +17,14 @@ import {
   CheckCircle2,
   Globe,
   Building2,
-  ArrowRight
+  ArrowRight,
+  Server,
+  Activity,
+  Compass,
+  Laptop,
+  Clock,
+  Lock,
+  Briefcase
 } from "lucide-react";
 import { motion } from "motion/react";
 
@@ -46,51 +54,34 @@ export default function AboutPage() {
     },
   ];
 
-  const team = [
-    {
-      name: "Daniel G.",
-      role: language === "en" ? "CEO & Founder" : "መስራች እና ዋና ስራ አስፈፃሚ",
-      tag: language === "en" ? "Executive & Vision" : "ዋና አመራር እና ራዕይ",
-      skills: language === "en" ? ["Ecosystem Vision", "Fintech Strategy", "Strategic Partnerships", "Capital Growth"] : ["የስራ ራዕይ", "የፋይናንስ ስትራቴጂ", "ሽርክና", "የንግድ እድገት"],
-      initial: "D"
-    },
-    {
-      name: "Dawit K.",
-      role: language === "en" ? "Chief Technology Officer" : "ዋና የቴክኖሎጂ ኦፊሰር",
-      tag: language === "en" ? "Tech & Infrastructure" : "ቴክኖሎጂ እና መሰረተ-ልማት",
-      skills: language === "en" ? ["Cloud Infrastructure", "Cybersecurity", "Database Scaling", "System Reliability"] : ["የደመና መዋቅር", "ሳይበር ደህንነት", "ዳታቤዝ", "የሲስተም አስተማማኝነት"],
-      initial: "D"
-    },
-  ];
-
   const teamPillars = [
     {
       icon: <Code2 className="h-5 w-5 text-[#FFD700]" />,
-      title: language === "en" ? "Software Engineering" : "የሶፍትዌር ምህንድስና",
+      title: language === "en" ? "Global Software Engineering" : "አለም አቀፍ የሶፍትዌር ምህንድስና",
       desc: language === "en" 
-        ? "Building high-speed web, mobile, and custom enterprise tools tailored to Ethiopian commerce."
-        : "ለኢትዮጵያ ገበያ የተመቻቹ ፈጣን የዌብ፣ ሞባይል እና የንግድ ሶፍትዌሮችን መገንባት።"
+        ? "Architecting high-speed web platforms, mobile apps, and custom enterprise software for organizations worldwide."
+        : "በዓለም ዙሪያ ላሉ ተቋማት ፈጣን የዌብ፣ የሞባይል እና የድርጅት ሶፍትዌሮችን ማልማት እና ማስተዳደር።"
     },
     {
       icon: <ShieldCheck className="h-5 w-5 text-[#FFD700]" />,
-      title: language === "en" ? "Fintech & Security" : "ፊንቴክ እና የደህንነት ቁጥጥር",
+      title: language === "en" ? "Cross-Border Fintech & Security" : "አለም አቀፍ ፊንቴክ እና የደህንነት ቁጥጥር",
       desc: language === "en"
-        ? "Real-time payment receipt verification and bank-level protection protocols."
-        : "የክፍያ ደረሰኝ ማረጋገጫ እና አስተማማኝ የባንክ ደረጃ የደህንነት ስርዓት።"
+        ? "Real-time payment verification, multi-currency protocols, and automated anti-fraud fraud detection algorithms."
+        : "የክፍያ ደረሰኝ ማረጋገጫ፣ የብዙ ገንዘብ ምንዛሪ ስርዓት እና አስተማማኝ የባንክ ደረጃ ደህንነት።"
     },
     {
       icon: <Layers className="h-5 w-5 text-[#FFD700]" />,
-      title: language === "en" ? "UI/UX & Product Design" : "ዲዛይን እና የተጠቃሚ ምቾት",
+      title: language === "en" ? "Product Design & Architecture" : "የምርት ዲዛይን እና ሲስተም አርክቴክቸር",
       desc: language === "en"
-        ? "Designing intuitive, bilingual digital workflows that empower local businesses."
-        : "ለአካባቢው ነጋዴዎች ምቹ የሆኑ ሁለት ቋንቋ ተናጋሪ ዲጂታል አሰራሮችን ማዘጋጀት።"
+        ? "Engineering intuitive, accessible, and multi-lingual digital experiences tailored for international markets."
+        : "ለዓለም አቀፍ እና ለአገር ውስጥ ተጠቃሚዎች ምቹ የሆኑ ሁለት ቋንቋ ተናጋሪ ዲጂታል አሰራሮችን ማዘጋጀት።"
     },
     {
       icon: <Headphones className="h-5 w-5 text-[#FFD700]" />,
-      title: language === "en" ? "Operations & 24/7 Support" : "ኦፕሬሽንስ እና 24/7 ድጋፍ",
+      title: language === "en" ? "24/7 Follow-The-Sun Operations" : "24/7 አለም አቀፍ ኦፕሬሽንስ እና ድጋፍ",
       desc: language === "en"
-        ? "Dedicated on-the-ground onboarding, technical assistance, and continuous maintenance."
-        : "ቀጥተኛ የቴክኒክ ድጋፍ፣ ስልጠና እና ቀጣይነት ያለው የሲስተም ክትትል።"
+        ? "Continuous global monitoring, enterprise client onboarding, and round-the-clock technical maintenance."
+        : "የ24 ሰዓት ቀጣይነት ያለው የቴክኒክ ክትትል፣ ደንበኞች ድጋፍ እና አስተማማኝ የሲስተም አሰራር።"
     }
   ];
 
@@ -102,10 +93,9 @@ export default function AboutPage() {
           <motion.div
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
-            className="inline-flex items-center space-x-2 rounded-full bg-[#FFD700]/5 border border-[#FFD700]/15 px-4 py-1.5 mb-6 shadow-[0_0_15px_rgba(255,215,0,0.1)]"
+            className="inline-flex items-center rounded-full bg-[#FFD700]/5 border border-[#FFD700]/15 px-4 py-1.5 mb-6 shadow-[0_0_15px_rgba(255,215,0,0.1)]"
             id="about-badge"
           >
-            <Users className="h-3.5 w-3.5 text-[#FFD700]" />
             <span className="text-xs font-semibold tracking-wider text-[#FFD700] uppercase">
               {language === "en" ? "Beu Tech" : "ቤዩ ቴክ"}
             </span>
@@ -212,89 +202,142 @@ export default function AboutPage() {
           </div>
         </div>
  
-        {/* Leadership Team Section */}
-        <div className="mb-20" id="about-team-section">
-          <div className="text-center max-w-3xl mx-auto mb-12">
-            <h2 className="font-sans text-3xl sm:text-4xl font-extrabold tracking-tight text-white">
-              {t("aboutTeamTitle")}
-            </h2>
-            <p className="mt-3 font-sans text-sm md:text-base text-gray-400 max-w-2xl mx-auto">
-              {t("aboutTeamSubtitle")}
-            </p>
-            <div className="mt-3 h-0.5 w-12 bg-[#FFD700] mx-auto rounded-full shadow-[0_0_10px_#FFD700]" />
-          </div>
+        {/* Executive Leadership Section */}
+        <div className="mb-24" id="about-team-section">
+          <TeamShowcase isStandalonePage={false} />
+        </div>
 
-          {/* Executive Leaders Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-3xl mx-auto mb-16" id="about-team-grid">
-            {team.map((member, idx) => (
-              <motion.div
-                key={idx}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: idx * 0.1 }}
-                whileHover={{ y: -6, transition: { duration: 0.2 } }}
-                className="rounded-3xl border border-white/10 bg-gradient-to-b from-white/[0.07] via-white/[0.02] to-[#0D1117] p-7 text-center hover:border-[#FFD700]/40 transition-all duration-300 relative flex flex-col justify-between shadow-xl backdrop-blur-sm group"
-                id={`team-card-${idx}`}
+          {/* Web Development & High Standards Section */}
+          <div className="max-w-5xl mx-auto rounded-3xl border border-white/10 bg-gradient-to-b from-[#111722] via-[#0A0E15] to-[#070A0F] p-8 sm:p-12 shadow-2xl relative overflow-hidden mb-16" id="web-development-section">
+            <div className="max-w-3xl mb-10">
+              <div className="inline-flex items-center space-x-2 rounded-full bg-[#FFD700]/10 border border-[#FFD700]/20 px-3.5 py-1 mb-3">
+                <Laptop className="h-3.5 w-3.5 text-[#FFD700]" />
+                <span className="text-[11px] font-bold tracking-wider text-[#FFD700] uppercase">
+                  {language === "en" ? "Web Development" : "የዌብ ልማት"}
+                </span>
+              </div>
+              <h3 className="font-sans text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white tracking-tight">
+                {language === "en" 
+                  ? "We Develop Websites With High Quality & Standards" 
+                  : "ከፍተኛ ጥራት እና ደረጃ ያላቸውን ዌብሳይቶች እናዘጋጃለን"}
+              </h3>
+              <p className="mt-3 text-sm sm:text-base text-gray-300 leading-relaxed">
+                {language === "en" 
+                  ? "We engineer modern, fast, and responsive websites crafted with precision, clean architecture, and the highest industry standards."
+                  : "በዘመናዊ ቴክኖሎጂ፣ ፈጣን አሰራር እና አስተማማኝ ጥራት ደረጃቸውን የጠበቁ ዌብሳይቶችን እንገነባለን።"}
+              </p>
+            </div>
+
+            {/* 4 Professional Capability Pillars - Clean & Direct */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-10">
+              <div className="p-6 rounded-2xl bg-white/[0.03] border border-white/10 hover:border-[#FFD700]/30 transition-colors">
+                <div className="flex items-center space-x-3 mb-2.5">
+                  <div className="p-2.5 rounded-xl bg-[#FFD700]/10 border border-[#FFD700]/20 text-[#FFD700]">
+                    <Zap className="h-5 w-5" />
+                  </div>
+                  <h4 className="font-sans text-base font-bold text-white">
+                    {language === "en" ? "High Performance & Speed" : "ከፍተኛ ፍጥነት እና ብቃት"}
+                  </h4>
+                </div>
+                <p className="text-xs sm:text-sm text-gray-400 leading-relaxed">
+                  {language === "en" 
+                    ? "Lightning-fast loading times, optimized code, and seamless responsiveness across all screen sizes and devices."
+                    : "ፈጣን የመጫን ፍጥነት፣ የተስተካከለ ኮድ እና በሁሉም ስክሪኖች ላይ ምቹ አሰራር።"}
+                </p>
+              </div>
+
+              <div className="p-6 rounded-2xl bg-white/[0.03] border border-white/10 hover:border-[#FFD700]/30 transition-colors">
+                <div className="flex items-center space-x-3 mb-2.5">
+                  <div className="p-2.5 rounded-xl bg-[#FFD700]/10 border border-[#FFD700]/20 text-[#FFD700]">
+                    <Code2 className="h-5 w-5" />
+                  </div>
+                  <h4 className="font-sans text-base font-bold text-white">
+                    {language === "en" ? "Modern Clean Architecture" : "ዘመናዊ እና ንጹህ የምህንድስና ስነ-ስርዓት"}
+                  </h4>
+                </div>
+                <p className="text-xs sm:text-sm text-gray-400 leading-relaxed">
+                  {language === "en" 
+                    ? "Built on robust, scalable frontend frameworks and clean codebases designed for longevity and easy maintenance."
+                    : "በዘመናዊ የቴክኖሎጂ መሰረቶች ላይ የተገነባ፣ ለቀጣይ አስተማማኝ አገልግሎት የተዘጋጀ።"}
+                </p>
+              </div>
+
+              <div className="p-6 rounded-2xl bg-white/[0.03] border border-white/10 hover:border-[#FFD700]/30 transition-colors">
+                <div className="flex items-center space-x-3 mb-2.5">
+                  <div className="p-2.5 rounded-xl bg-[#FFD700]/10 border border-[#FFD700]/20 text-[#FFD700]">
+                    <ShieldCheck className="h-5 w-5" />
+                  </div>
+                  <h4 className="font-sans text-base font-bold text-white">
+                    {language === "en" ? "Security & Industry Standards" : "ጥብቅ ደህንነት እና ደረጃዎች"}
+                  </h4>
+                </div>
+                <p className="text-xs sm:text-sm text-gray-400 leading-relaxed">
+                  {language === "en" 
+                    ? "Enterprise-grade security, data protection best practices, accessibility standards, and reliable cloud hosting."
+                    : "የተሟላ የደህንነት ጥበቃ፣ የውሂብ ደህንነት እና አስተማማኝ የደመና ቴክኖሎጂ።"}
+                </p>
+              </div>
+
+              <div className="p-6 rounded-2xl bg-white/[0.03] border border-white/10 hover:border-[#FFD700]/30 transition-colors">
+                <div className="flex items-center space-x-3 mb-2.5">
+                  <div className="p-2.5 rounded-xl bg-[#FFD700]/10 border border-[#FFD700]/20 text-[#FFD700]">
+                    <Briefcase className="h-5 w-5" />
+                  </div>
+                  <h4 className="font-sans text-base font-bold text-white">
+                    {language === "en" ? "End-to-End Quality Delivery" : "ሁለንተናዊ ጥራት እና ድጋፍ"}
+                  </h4>
+                </div>
+                <p className="text-xs sm:text-sm text-gray-400 leading-relaxed">
+                  {language === "en" 
+                    ? "From custom UI/UX design and features to multi-currency payments, automated testing, and dedicated support."
+                    : "ከተጠቃሚ ምቹ ዲዛይን እስከ ክፍያ ስርዓቶች እና አስተማማኝ ቀጣይነት ያለው እገዛ።"}
+                </p>
+              </div>
+            </div>
+
+            {/* Bottom Proof Bar & CTA */}
+            <div className="pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4">
+              <div className="flex flex-wrap items-center gap-4 text-xs text-gray-300">
+                <span className="flex items-center space-x-1.5">
+                  <CheckCircle2 className="h-4 w-4 text-emerald-400" />
+                  <span>{language === "en" ? "High Performance & Speed" : "ከፍተኛ ፍጥነት"}</span>
+                </span>
+                <span className="flex items-center space-x-1.5">
+                  <CheckCircle2 className="h-4 w-4 text-emerald-400" />
+                  <span>{language === "en" ? "Clean & Maintainable Code" : "ንጹህ ኮድ"}</span>
+                </span>
+                <span className="flex items-center space-x-1.5">
+                  <CheckCircle2 className="h-4 w-4 text-emerald-400" />
+                  <span>{language === "en" ? "Rigorous Quality Standards" : "ከፍተኛ ጥራት"}</span>
+                </span>
+              </div>
+
+              <button
+                onClick={() => navigateTo("contact")}
+                className="w-full sm:w-auto inline-flex items-center justify-center space-x-2 px-6 py-2.5 rounded-xl bg-[#FFD700] text-black font-sans text-xs sm:text-sm font-bold hover:bg-[#FFA500] transition-colors shrink-0 shadow-lg cursor-pointer"
+                id="discuss-web-project-btn"
               >
-                <div>
-                  {/* Department Tag */}
-                  <div className="mb-4">
-                    <span className="inline-block px-3 py-1 rounded-full text-[11px] font-semibold bg-white/5 border border-white/10 text-gray-300 group-hover:border-amber-400/40 group-hover:text-[#FFD700] transition-colors">
-                      {member.tag}
-                    </span>
-                  </div>
-
-                  {/* Monogram profile avatar */}
-                  <div className="relative mx-auto h-20 w-20 mb-5">
-                    <div className="relative h-full w-full rounded-full bg-gradient-to-tr from-[#FFD700] to-[#FFA500] p-[2px] shadow-[0_0_20px_rgba(255,215,0,0.2)] group-hover:scale-105 transition-transform duration-300">
-                      <div className="flex h-full w-full items-center justify-center rounded-full bg-[#0F0F0F]">
-                        <span className="font-sans text-2xl font-black text-[#FFD700]">
-                          {member.initial}
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-                  
-                  <h3 className="font-sans text-xl font-extrabold tracking-wide text-white group-hover:text-[#FFD700] transition-colors">
-                    {member.name}
-                  </h3>
-                  <p className="mt-1 font-sans text-sm font-semibold text-gray-300">
-                    {member.role}
-                  </p>
-                </div>
-
-                {/* Skills/Focus pills */}
-                <div className="mt-5 pt-4 border-t border-white/10 flex flex-wrap gap-1.5 justify-center">
-                  {member.skills.map((skill, sIdx) => (
-                    <span 
-                      key={sIdx}
-                      className="text-[11px] font-medium px-2.5 py-1 rounded-lg bg-white/5 border border-white/10 text-gray-300 group-hover:border-white/20 transition-colors"
-                    >
-                      {skill}
-                    </span>
-                  ))}
-                </div>
-              </motion.div>
-            ))}
+                <span>{language === "en" ? "Start Your Project" : "ፕሮጀክትዎን ይጀምሩ"}</span>
+                <ArrowRight className="h-4 w-4" />
+              </button>
+            </div>
           </div>
 
           {/* Collective Talent & Department Pillars Section */}
           <div className="max-w-5xl mx-auto rounded-3xl border border-white/10 bg-gradient-to-b from-white/[0.05] to-transparent p-8 sm:p-10 shadow-2xl relative overflow-hidden" id="team-pillars-section">
             <div className="text-center max-w-2xl mx-auto mb-10">
-              <div className="inline-flex items-center space-x-2 rounded-full bg-[#FFD700]/10 border border-[#FFD700]/20 px-3.5 py-1 mb-3">
-                <Sparkles className="h-3.5 w-3.5 text-[#FFD700]" />
+              <div className="inline-flex items-center rounded-full bg-[#FFD700]/10 border border-[#FFD700]/20 px-3.5 py-1 mb-3">
                 <span className="text-[11px] font-bold tracking-wider text-[#FFD700] uppercase">
                   {language === "en" ? "Our Multi-Disciplinary Core" : "የጋራ የስራ ክፍሎች"}
                 </span>
               </div>
               <h3 className="font-sans text-2xl sm:text-3xl font-extrabold text-white">
-                {language === "en" ? "Driven by Innovation & Local Talent" : "በአገር በቀል እውቀት እና ፈጠራ የሚመራ"}
+                {language === "en" ? "Driven by Innovation & Global Standards" : "በፈጠራ እና አለም አቀፍ ደረጃ የሚመራ"}
               </h3>
               <p className="mt-2 text-xs sm:text-sm text-gray-400">
                 {language === "en"
-                  ? "Our cross-functional teams build, verify, and maintain Ethiopia's next-generation digital products."
-                  : "የተለያዩ የስራ ክፍሎቻችን የኢትዮጵያን ቀጣይ ትውልድ ዲጂታል ምርቶች ያዘጋጃሉ፣ ይቆጣጠራሉ እንዲሁም ያስተዳድራሉ።"}
+                  ? "Our cross-functional teams build, verify, and maintain next-generation digital products and systems for clients worldwide."
+                  : "የተለያዩ የስራ ክፍሎቻችን በአገር ውስጥ እና በአለም አቀፍ ደረጃ አስተማማኝ ዲጂታል ምርቶችን ያዘጋጃሉ እንዲሁም ያስተዳድራሉ።"}
               </p>
             </div>
 
@@ -324,19 +367,18 @@ export default function AboutPage() {
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-6 border-t border-white/10 text-center">
               <div className="flex items-center justify-center space-x-2 text-gray-300 text-xs sm:text-sm">
                 <CheckCircle2 className="h-4 w-4 text-emerald-400 shrink-0" />
-                <span>{language === "en" ? "100% In-House Development" : "100% የራስ ውስጥ ልማት"}</span>
+                <span>{language === "en" ? "100% In-House Engineering" : "100% የራስ ውስጥ ምህንድስና"}</span>
               </div>
               <div className="flex items-center justify-center space-x-2 text-gray-300 text-xs sm:text-sm">
-                <Building2 className="h-4 w-4 text-[#FFD700] shrink-0" />
-                <span>{language === "en" ? "Addis Ababa, Ethiopia HQ" : "አዲስ አበባ፣ ኢትዮጵያ"}</span>
+                <Globe className="h-4 w-4 text-[#FFD700] shrink-0" />
+                <span>{language === "en" ? "Worldwide Client Delivery" : "አለም አቀፍ አገልግሎት አሰጣጥ"}</span>
               </div>
               <div className="flex items-center justify-center space-x-2 text-gray-300 text-xs sm:text-sm">
-                <Globe className="h-4 w-4 text-blue-400 shrink-0" />
-                <span>{language === "en" ? "Global Standards & Security" : "አለም አቀፍ ደረጃ እና ደህንነት"}</span>
+                <ShieldCheck className="h-4 w-4 text-blue-400 shrink-0" />
+                <span>{language === "en" ? "Enterprise SOC2 & ISO Standards" : "አለም አቀፍ የደህንነት ደረጃዎች"}</span>
               </div>
             </div>
           </div>
-        </div>
 
       </div>
     </div>

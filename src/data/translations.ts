@@ -311,8 +311,8 @@ export const translations: Record<"en" | "am", Translation> = {
     aboutValue3Desc: "Our systems are built ground-up to accommodate low internet connectivity, Amharic language requirements, and local payment patterns.",
     aboutValue4Title: "Uncompromising Excellence",
     aboutValue4Desc: "We believe African tech should meet or exceed international engineering standards. We never compromise on quality.",
-    aboutTeamTitle: "Our Leadership Team",
-    aboutTeamSubtitle: "A team of dedicated engineers, designers, and business operators committed to shaping the future of African technology.",
+    aboutTeamTitle: "Leadership",
+    aboutTeamSubtitle: "Guiding our engineering teams with uncompromising quality and high standards.",
 
     footerDesc: "Welcome to The New Age",
     footerColCompany: "Company",
@@ -467,8 +467,8 @@ export const translations: Record<"en" | "am", Translation> = {
     aboutValue3Desc: "ስርዓቶቻችን አነስተኛ የኢንተርኔት ግንኙነትን፣ የአማርኛ ቋንቋ ፍላጎቶችን እና የአገር ውስጥ የክፍያ ዘይቤዎችን ከግምት ውስጥ ያስገቡ ናቸው።",
     aboutValue4Title: "ያለድርድር ጥራት",
     aboutValue4Desc: "የአፍሪካ ቴክኖሎጂ ዓለም አቀፍ የምህንድስና ደረጃዎችን ማሟላት ወይም ማለፍ አለበት ብለን እናምናለን። በጥራት ላይ መቼም አንደራደርም።",
-    aboutTeamTitle: "የስራ አመራር ቡድናችን",
-    aboutTeamSubtitle: "የአፍሪካ ቴክኖሎጂን የወደፊት እጣ ፈንታ ለመቅረጽ ቁርጠኛ የሆኑ መሐንዲሶች፣ ዲዛይነሮች እና የንግድ ባለሙያዎች ቡድን።",
+    aboutTeamTitle: "የስራ አመራር",
+    aboutTeamSubtitle: "ከፍተኛ ጥራት እና ደረጃ ያላቸውን የቴክኖሎጂ ስራዎች የሚመራ ቡድን።",
 
     footerDesc: "እንኳን ወደ አዲሱ ዘመን በደህና መጡ",
     footerColCompany: "ኩባንያ",
