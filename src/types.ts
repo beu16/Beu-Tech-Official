@@ -5,11 +5,8 @@ export type Language = "en" | "am";
 export type Route =
   | "/"
   | "/about"
-  | "/subsidiaries"
+  | "/solutions"
   | "/beu-verify"
-  | "/beu-digital"
-  | "/beu-finance"
-  | "/beu-develop"
   | "/contact";
 
 export interface AppContextType {

@@ -23,3 +23,57 @@
 ::-webkit-scrollbar-thumb:hover {
   background: #FFD700;
 }
+
+/* A spark that travels along an explorer branch (path set inline via offset-path) */
+.branch-spark {
+  offset-rotate: 0deg;
+  opacity: 0;
+  animation: branch-travel 2.4s linear infinite;
+}
+
+@keyframes branch-travel {
+  0% { offset-distance: 0%; opacity: 0; }
+  10% { opacity: 1; }
+  85% { opacity: 1; }
+  100% { offset-distance: 100%; opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .branch-spark { display: none; }
+}
+
+/* Endless horizontal strip; the content is duplicated so -50% loops seamlessly */
+.marquee-track {
+  animation: marquee 38s linear infinite;
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track { animation: none; }
+}
+
+/* Swipe rows on phones without a visible scrollbar */
+.no-scrollbar { scrollbar-width: none; }
+.no-scrollbar::-webkit-scrollbar { display: none; }
+
+html { -webkit-tap-highlight-color: transparent; }
+
+/* Dust drifting upward through the leadership spotlights */
+.team-dust {
+  opacity: 0;
+  animation: team-dust 7s ease-in-out infinite;
+}
+
+@keyframes team-dust {
+  0% { transform: translateY(20px); opacity: 0; }
+  30% { opacity: 0.55; }
+  100% { transform: translateY(-60px); opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .team-dust { display: none; }
+}

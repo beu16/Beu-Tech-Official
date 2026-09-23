@@ -4,6 +4,18 @@ import { translations, Translation } from "../data/translations";
 
 const AppContext = createContext<AppContextType | undefined>(undefined);
 
+const validRoutes: Route[] = ["/", "/about", "/solutions", "/beu-verify", "/contact"];
+
+// Former subsidiary pages, now merged into Solutions. Kept so old shared links still land somewhere useful.
+const legacyRoutes = ["/subsidiaries", "/beu-digital", "/beu-finance", "/beu-develop", "/beu-education"];
+
+function routeFromHash(hash: string): Route {
+  if (!hash || hash === "#" || hash === "#/") return "/";
+  const path = hash.replace("#", "");
+  if (legacyRoutes.includes(path)) return "/solutions";
+  return validRoutes.includes(path as Route) ? (path as Route) : "/";
+}
+
 export function AppContextProvider({ children }: { children: ReactNode }) {
   const [language, setLanguageState] = useState<Language>(() => {
     const saved = localStorage.getItem("beu_tech_lang");
@@ -12,46 +24,13 @@ export function AppContextProvider({ children }: { children: ReactNode }) {
   });
 
   const [currentRoute, setCurrentRoute] = useState<Route>(() => {
-    const hash = window.location.hash;
-    if (!hash || hash === "#" || hash === "#/") return "/";
-    const path = hash.replace("#", "") as Route;
-    const validRoutes: Route[] = [
-      "/",
-      "/about",
-      "/subsidiaries",
-      "/beu-verify",
-      "/beu-digital",
-      "/beu-finance",
-      "/beu-develop",
-      "/contact"
-    ];
-    return validRoutes.includes(path) ? path : "/";
+    return routeFromHash(window.location.hash);
   });
 
   // Handle browser back/forward and direct hash entry
   useEffect(() => {
     const handleHashChange = () => {
-      const hash = window.location.hash;
-      if (!hash || hash === "#" || hash === "#/") {
-        setCurrentRoute("/");
-        return;
-      }
-      const path = hash.replace("#", "") as Route;
-      const validRoutes: Route[] = [
-        "/",
-        "/about",
-        "/subsidiaries",
-        "/beu-verify",
-        "/beu-digital",
-        "/beu-finance",
-        "/beu-develop",
-        "/contact"
-      ];
-      if (validRoutes.includes(path)) {
-        setCurrentRoute(path);
-      } else {
-        setCurrentRoute("/");
-      }
+      setCurrentRoute(routeFromHash(window.location.hash));
     };
 
     window.addEventListener("hashchange", handleHashChange);

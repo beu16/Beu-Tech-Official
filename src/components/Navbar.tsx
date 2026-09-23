@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useApp } from "./AppContext";
 import { Zap, Menu, X, Globe } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
+import Logo from "./Logo";
 
 export default function Navbar() {
   const { language, setLanguage, currentRoute, navigateTo, t } = useApp();
@@ -9,7 +10,7 @@ export default function Navbar() {
 
   const navLinks = [
     { name: t("home"), route: "/" as const },
-    { name: t("subsidiaries"), route: "/subsidiaries" as const },
+    { name: t("solutions"), route: "/solutions" as const },
     { name: t("about"), route: "/about" as const },
     { name: t("contact"), route: "/contact" as const },
   ];
@@ -28,34 +29,7 @@ export default function Navbar() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           {/* Logo Section */}
-          <div 
-            onClick={() => handleNavClick("/")} 
-            className="flex cursor-pointer items-center space-x-2 group"
-            id="nav-logo-container"
-          >
-            <motion.div
-              animate={{
-                scale: [1, 1.15, 1],
-                filter: ["drop-shadow(0 0 2px rgba(255,215,0,0.3))", "drop-shadow(0 0 10px rgba(255,215,0,0.8))", "drop-shadow(0 0 2px rgba(255,215,0,0.3))"]
-              }}
-              transition={{
-                duration: 3,
-                repeat: Infinity,
-                ease: "easeInOut"
-              }}
-              className="text-[#FFD700]"
-              id="navbar-logo-icon"
-            >
-              <svg className="h-6 w-6 text-[#FFD700]" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <polygon points="50,15 80,32 80,68 50,85 20,68 20,32" stroke="currentColor" strokeWidth="8" strokeLinejoin="round"/>
-                <polygon points="50,27 70,38 70,62 50,73 30,62 30,38" stroke="currentColor" strokeWidth="4" strokeLinejoin="round" opacity="0.6"/>
-                <circle cx="50" cy="50" r="10" fill="currentColor"/>
-              </svg>
-            </motion.div>
-            <span className="font-sans text-xl font-bold tracking-tight text-white transition-colors duration-300 group-hover:text-[#FFD700]">
-              Beu <span className="text-[#FFD700]">Tech</span>
-            </span>
-          </div>
+          <Logo onClick={() => handleNavClick("/")} id="nav-logo-container" />
 
           {/* Desktop Nav Links */}
           <div className="hidden md:flex items-center space-x-8" id="nav-desktop-links">
@@ -113,11 +87,11 @@ export default function Navbar() {
             {/* Lang Toggle on Mobile header */}
             <button
               onClick={handleLanguageToggle}
-              className="flex items-center space-x-1 rounded-full border border-white/10 px-2.5 py-1 text-xs text-gray-300 hover:bg-white/5 transition-colors"
+              className="flex h-9 items-center space-x-1.5 rounded-full border border-white/10 px-3 text-xs text-gray-300 hover:bg-white/5 transition-colors"
               id="lang-toggle-mobile-header"
             >
               <Globe className="h-3 w-3 text-gray-400" />
-              <span className="text-[10px]">{language === "en" ? "አማ" : "EN"}</span>
+              <span className="text-xs font-semibold">{language === "en" ? "አማ" : "EN"}</span>
             </button>
 
             <button

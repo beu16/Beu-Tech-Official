@@ -1,7 +1,13 @@
 import { AppContextProvider, useApp } from "./components/AppContext";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
-import Subsidiaries from "./components/Subsidiaries";
+import Solutions from "./components/Solutions";
+import HowWeWork from "./components/HowWeWork";
+import TechMarquee from "./components/TechMarquee";
+import FeaturedWork from "./components/FeaturedWork";
+import WebsiteShowcase from "./components/WebsiteShowcase";
+import FAQ from "./components/FAQ";
+import MobileCTA from "./components/MobileCTA";
 import WhyChooseUs from "./components/WhyChooseUs";
 import Stats from "./components/Stats";
 import Testimonials from "./components/Testimonials";
@@ -9,12 +15,8 @@ import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 
 import AboutPage from "./components/AboutPage";
-import SubsidiariesPage from "./components/SubsidiariesPage";
+import SolutionsPage from "./components/SolutionsPage";
 import BeuVerifyPage from "./components/BeuVerifyPage";
-import BeuDigitalPage from "./components/BeuDigitalPage";
-import BeuFinancePage from "./components/BeuFinancePage";
-import BeuDevelopPage from "./components/BeuDevelopPage";
-import BeuEducationPage from "./components/BeuEducationPage";
 import { motion, AnimatePresence } from "motion/react";
 
 function AppContent() {
@@ -48,20 +50,21 @@ function AppContent() {
             {currentRoute === "/" && (
               <>
                 <Hero />
-                <Subsidiaries />
-                <WhyChooseUs />
                 <Stats />
+                <TechMarquee />
+                <Solutions />
+                <WebsiteShowcase />
+                <HowWeWork />
+                <FeaturedWork />
+                <WhyChooseUs />
                 <Testimonials />
+                <FAQ />
                 <Contact />
               </>
             )}
             {currentRoute === "/about" && <AboutPage />}
-            {currentRoute === "/subsidiaries" && <SubsidiariesPage />}
+            {currentRoute === "/solutions" && <SolutionsPage />}
             {currentRoute === "/beu-verify" && <BeuVerifyPage />}
-            {currentRoute === "/beu-digital" && <BeuDigitalPage />}
-            {currentRoute === "/beu-finance" && <BeuFinancePage />}
-            {currentRoute === "/beu-develop" && <BeuDevelopPage />}
-            {currentRoute === "/beu-education" && <BeuEducationPage />}
             {currentRoute === "/contact" && (
               <div className="py-8 bg-black">
                 <Contact />
@@ -73,6 +76,9 @@ function AppContent() {
 
       {/* Footer */}
       <Footer />
+
+      {/* Phone-only sticky call to action */}
+      <MobileCTA />
     </div>
   );
 }
