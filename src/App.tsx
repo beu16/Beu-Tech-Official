@@ -7,7 +7,6 @@ import TechMarquee from "./components/TechMarquee";
 import FeaturedWork from "./components/FeaturedWork";
 import WebsiteShowcase from "./components/WebsiteShowcase";
 import FAQ from "./components/FAQ";
-import MobileCTA from "./components/MobileCTA";
 import WhyChooseUs from "./components/WhyChooseUs";
 import Stats from "./components/Stats";
 import Testimonials from "./components/Testimonials";
@@ -76,9 +75,6 @@ function AppContent() {
 
       {/* Footer */}
       <Footer />
-
-      {/* Phone-only sticky call to action */}
-      <MobileCTA />
     </div>
   );
 }

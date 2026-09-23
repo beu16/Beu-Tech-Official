@@ -213,6 +213,7 @@ function LeaderCard({
 }) {
   const { language, navigateTo } = useApp();
   const en = language === "en";
+  const fullName = `${en ? "Mr." : "አቶ"} ${member.name}`;
   const featured = !!member.isCeo;
 
   return (
@@ -236,7 +237,7 @@ function LeaderCard({
           <>
             <img
               src={member.photo}
-              alt={member.name}
+              alt={fullName}
               loading="lazy"
               className="absolute inset-0 h-full w-full object-cover grayscale contrast-125 brightness-90 transition-transform duration-700 group-hover:scale-[1.03]"
             />
@@ -257,7 +258,7 @@ function LeaderCard({
               {en ? "Founder" : "መስራች"}
             </span>
           )}
-          <h3 className={`font-sans font-extrabold tracking-tight text-white ${featured ? "text-3xl" : "text-2xl"}`}>{member.name}</h3>
+          <h3 className={`font-sans font-extrabold tracking-tight text-white ${featured ? "text-3xl" : "text-2xl"}`}>{fullName}</h3>
           <p className="mt-1 font-sans text-sm font-semibold text-[#FFD700]">{en ? member.roleEn : member.roleAm}</p>
           <p className="mt-1 font-sans text-xs text-gray-400">{en ? member.taglineEn : member.taglineAm}</p>
         </div>
@@ -275,7 +276,7 @@ function LeaderCard({
               <div className="font-mono text-[10px] font-bold uppercase tracking-widest text-[#FFD700]/80">
                 {en ? member.badgeEn : member.badgeAm}
               </div>
-              <h3 className="mt-2 font-sans text-2xl font-extrabold text-white">{member.name}</h3>
+              <h3 className="mt-2 font-sans text-2xl font-extrabold text-white">{fullName}</h3>
               <p className="mt-3 font-sans text-[13px] sm:text-sm leading-relaxed text-gray-300">{en ? member.summaryEn : member.summaryAm}</p>
               <div className="mt-4 flex flex-wrap gap-1.5">
                 {member.specializations.map((spec) => (
@@ -302,7 +303,7 @@ function LeaderCard({
         <button
           onClick={onToggle}
           aria-expanded={open}
-          aria-label={`${member.name}: ${en ? "view profile" : "መገለጫ ይመልከቱ"}`}
+          aria-label={`${fullName}: ${en ? "view profile" : "መገለጫ ይመልከቱ"}`}
           className={`absolute right-4 top-4 z-10 flex h-9 w-9 items-center justify-center rounded-full border border-white/15 bg-black/60 text-white backdrop-blur transition-transform duration-300 ${
             open ? "rotate-45" : ""
           }`}
